@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  radancybanking:
+    image: ${DOCKER_REGISTRY-}radancybanking
+    build:
+      context: .
+      dockerfile: RadancyBanking/Dockerfile
