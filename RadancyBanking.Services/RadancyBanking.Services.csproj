@@ -7,7 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
+    <Folder Include="Implementations\" />
     <Folder Include="Validation\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\RadancyBanking.DomainModels\RadancyBanking.DomainModels.csproj" />
   </ItemGroup>
 
 </Project>
