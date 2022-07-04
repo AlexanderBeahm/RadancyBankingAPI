@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace RadancyBanking.DomainModels
 {
-    internal class CreateAccount
+    public class CreateAccount
     {
         [Required]
         [Range(1, int.MaxValue)]
