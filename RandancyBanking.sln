@@ -3,9 +3,25 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32616.157
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RadancyBanking", "RadancyBanking\RadancyBanking.csproj", "{60EC71E2-F28E-4C89-8F8D-DEA94D0D9346}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RadancyBanking", "RadancyBanking\RadancyBanking.csproj", "{60EC71E2-F28E-4C89-8F8D-DEA94D0D9346}"
 EndProject
 Project("{E53339B2-1760-4266-BCC7-CA923CBCF16C}") = "docker-compose", "docker-compose.dcproj", "{370E2306-EC8E-491D-B755-0E45C05715A1}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RadancyBanking.Services", "RadancyBanking.Services\RadancyBanking.Services.csproj", "{C41367BF-85AF-47FD-A378-EBA228C4AADD}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RandacyBanking.Repositories", "RandacyBanking.Repositories\RandacyBanking.Repositories.csproj", "{A0ED2E8E-2BD1-4D1E-BA26-5A3FB29A1B8B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RadancyBanking.DomainModels", "RadancyBanking.DomainModels\RadancyBanking.DomainModels.csproj", "{C0D2EDE6-5047-4DCE-A141-B65C09EAE000}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RadancyBanking.DataModels", "RadancyBanking.DataModels\RadancyBanking.DataModels.csproj", "{8657F7E5-E948-4738-B9F7-30AA24D1BFC9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RadancyBanking.Connectors", "..\RadancyBanking.Connectors\RadancyBanking.Connectors.csproj", "{E9F6AE14-7132-496E-A15C-A73351E58357}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RadancyBanking.Services.Tests", "..\RadancyBanking.Services.Tests\RadancyBanking.Services.Tests.csproj", "{3C66ECEC-4592-4D38-9C6E-3299FC53686F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RadancyBanking.Connectors.Tests", "..\RadancyBanking.Connectors.Tests\RadancyBanking.Connectors.Tests.csproj", "{F266722E-052D-4D0A-AAFF-A5536E9ABC6B}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RadancyBanking.Repositories.Tests", "..\RadancyBanking.Repositories.Tests\RadancyBanking.Repositories.Tests.csproj", "{31E48EC2-8581-4A72-95F8-03DB525A22CF}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -21,6 +37,38 @@ Global
 		{370E2306-EC8E-491D-B755-0E45C05715A1}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{370E2306-EC8E-491D-B755-0E45C05715A1}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{370E2306-EC8E-491D-B755-0E45C05715A1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C41367BF-85AF-47FD-A378-EBA228C4AADD}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C41367BF-85AF-47FD-A378-EBA228C4AADD}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C41367BF-85AF-47FD-A378-EBA228C4AADD}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C41367BF-85AF-47FD-A378-EBA228C4AADD}.Release|Any CPU.Build.0 = Release|Any CPU
+		{A0ED2E8E-2BD1-4D1E-BA26-5A3FB29A1B8B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{A0ED2E8E-2BD1-4D1E-BA26-5A3FB29A1B8B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{A0ED2E8E-2BD1-4D1E-BA26-5A3FB29A1B8B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{A0ED2E8E-2BD1-4D1E-BA26-5A3FB29A1B8B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C0D2EDE6-5047-4DCE-A141-B65C09EAE000}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C0D2EDE6-5047-4DCE-A141-B65C09EAE000}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C0D2EDE6-5047-4DCE-A141-B65C09EAE000}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C0D2EDE6-5047-4DCE-A141-B65C09EAE000}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8657F7E5-E948-4738-B9F7-30AA24D1BFC9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8657F7E5-E948-4738-B9F7-30AA24D1BFC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8657F7E5-E948-4738-B9F7-30AA24D1BFC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8657F7E5-E948-4738-B9F7-30AA24D1BFC9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E9F6AE14-7132-496E-A15C-A73351E58357}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E9F6AE14-7132-496E-A15C-A73351E58357}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E9F6AE14-7132-496E-A15C-A73351E58357}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E9F6AE14-7132-496E-A15C-A73351E58357}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3C66ECEC-4592-4D38-9C6E-3299FC53686F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3C66ECEC-4592-4D38-9C6E-3299FC53686F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3C66ECEC-4592-4D38-9C6E-3299FC53686F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3C66ECEC-4592-4D38-9C6E-3299FC53686F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{F266722E-052D-4D0A-AAFF-A5536E9ABC6B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{F266722E-052D-4D0A-AAFF-A5536E9ABC6B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{F266722E-052D-4D0A-AAFF-A5536E9ABC6B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{F266722E-052D-4D0A-AAFF-A5536E9ABC6B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{31E48EC2-8581-4A72-95F8-03DB525A22CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{31E48EC2-8581-4A72-95F8-03DB525A22CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{31E48EC2-8581-4A72-95F8-03DB525A22CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{31E48EC2-8581-4A72-95F8-03DB525A22CF}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
