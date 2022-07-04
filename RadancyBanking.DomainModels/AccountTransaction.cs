@@ -14,14 +14,6 @@ namespace RadancyBanking.DomainModels
         [Range(0.0, Double.MaxValue)]
         public decimal Amount { get; set; }
 
-        [Required]
-        [Range(1, int.MaxValue)]
-        public int UserId { get; set; }
-
-        [Required]
-        [Range(1, int.MaxValue)]
-        public int AccountId { get; set; }
-
         public virtual TransactionType TransactionType => throw new InvalidOperationException();
     
     }
