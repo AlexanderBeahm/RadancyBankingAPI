@@ -15,13 +15,15 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RadancyBanking.DomainModels
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RadancyBanking.DataModels", "RadancyBanking.DataModels\RadancyBanking.DataModels.csproj", "{8657F7E5-E948-4738-B9F7-30AA24D1BFC9}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RadancyBanking.Connectors", "..\RadancyBanking.Connectors\RadancyBanking.Connectors.csproj", "{E9F6AE14-7132-496E-A15C-A73351E58357}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RadancyBanking.Connectors", "..\RadancyBanking.Connectors\RadancyBanking.Connectors.csproj", "{E9F6AE14-7132-496E-A15C-A73351E58357}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RadancyBanking.Services.Tests", "..\RadancyBanking.Services.Tests\RadancyBanking.Services.Tests.csproj", "{3C66ECEC-4592-4D38-9C6E-3299FC53686F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RadancyBanking.Services.Tests", "..\RadancyBanking.Services.Tests\RadancyBanking.Services.Tests.csproj", "{3C66ECEC-4592-4D38-9C6E-3299FC53686F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RadancyBanking.Connectors.Tests", "..\RadancyBanking.Connectors.Tests\RadancyBanking.Connectors.Tests.csproj", "{F266722E-052D-4D0A-AAFF-A5536E9ABC6B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RadancyBanking.Connectors.Tests", "..\RadancyBanking.Connectors.Tests\RadancyBanking.Connectors.Tests.csproj", "{F266722E-052D-4D0A-AAFF-A5536E9ABC6B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RadancyBanking.Repositories.Tests", "..\RadancyBanking.Repositories.Tests\RadancyBanking.Repositories.Tests.csproj", "{31E48EC2-8581-4A72-95F8-03DB525A22CF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RadancyBanking.Repositories.Tests", "..\RadancyBanking.Repositories.Tests\RadancyBanking.Repositories.Tests.csproj", "{31E48EC2-8581-4A72-95F8-03DB525A22CF}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RadancyBanking.Enumerations", "..\RadancyBanking.Enumerations\RadancyBanking.Enumerations.csproj", "{EF70B87D-E195-4732-92E1-D89E9707B8EE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -69,6 +71,10 @@ Global
 		{31E48EC2-8581-4A72-95F8-03DB525A22CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{31E48EC2-8581-4A72-95F8-03DB525A22CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{31E48EC2-8581-4A72-95F8-03DB525A22CF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EF70B87D-E195-4732-92E1-D89E9707B8EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF70B87D-E195-4732-92E1-D89E9707B8EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF70B87D-E195-4732-92E1-D89E9707B8EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF70B87D-E195-4732-92E1-D89E9707B8EE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
