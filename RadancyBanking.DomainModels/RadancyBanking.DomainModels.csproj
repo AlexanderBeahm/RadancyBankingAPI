@@ -6,4 +6,8 @@
     <Nullable>enable</Nullable>
   </PropertyGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\RadancyBanking.Enumerations\RadancyBanking.Enumerations.csproj" />
+  </ItemGroup>
+
 </Project>
