@@ -16,6 +16,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\RadancyBanking.DomainModels\RadancyBanking.DomainModels.csproj" />
+    <ProjectReference Include="..\RadancyBanking.Services\RadancyBanking.Services.csproj" />
   </ItemGroup>
 
 </Project>

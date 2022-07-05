@@ -1,6 +1,7 @@
 ﻿using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
 using RadancyBanking.DomainModels;
+using RadancyBanking.Services;
 using System.ComponentModel.DataAnnotations;
 
 namespace RadancyBanking.Controllers
@@ -9,48 +10,32 @@ namespace RadancyBanking.Controllers
     [ApiController]
     public class UserController : ControllerBase
     {
-        private readonly ILogger<UserController> _logger;
+        private readonly ILogger<UserController> logger;
+        private readonly IUserService userService;
 
-        public UserController(ILogger<UserController> logger)
+        public UserController(ILogger<UserController> logger, IUserService userService)
         {
-            _logger = logger;
+            this.logger = logger;
+            this.userService = userService;
         }
 
         [HttpGet()]
         public ActionResult Ping()
         {
-            _logger.LogDebug("Pinged UserController");
+            logger.LogDebug("Pinged UserController");
             return Ok();
         }
 
         [HttpGet("/{userId}")]
         public ActionResult<User> GetUser([FromRoute][Required][Range(1, int.MaxValue)] int userId)
         {
-            return new User
-            {
-                Accounts = new List<UserAccount>(),
-                FamilyName = "Beahm",
-                GivenName = "Alex",
-                Id = userId
-            };
+            return userService.GetUser(userId);
         }
 
         [HttpPost()]
         public ActionResult<User> CreateUser([FromBody][Required]CreateUser createUser)
         {
-            return new User
-            {
-                Accounts = new List<UserAccount>(),
-                FamilyName = "Beahm",
-                GivenName = "Alex",
-                Id = 1
-            };
-        }
-
-        [HttpDelete("/{userId}")]
-        public ActionResult DeleteUser([FromRoute][Required][Range(1, int.MaxValue)] int userId)
-        {
-            return Ok();
+            return userService.CreateUser(createUser);
         }
     }
 }

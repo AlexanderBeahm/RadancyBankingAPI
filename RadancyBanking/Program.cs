@@ -1,3 +1,8 @@
+using RadancyBanking.Services;
+using RadancyBanking.Services.Implementations;
+using RandacyBanking.Repositories;
+using RandacyBanking.Repositories.Implementations;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -7,6 +12,11 @@ builder.Services.AddControllers();
 builder.Services.AddEndpointsApiExplorer();
 builder.Services.AddSwaggerGen();
 builder.Services.AddHealthChecks();
+
+builder.Services.AddTransient<IAccountService, AccountService>()
+    .AddTransient<IUserService, UserService>()
+    .AddTransient<IAccountRepository, AccountRepository>()
+    .AddTransient<IUserRepository, UserRepository>();
 
 var app = builder.Build();
 

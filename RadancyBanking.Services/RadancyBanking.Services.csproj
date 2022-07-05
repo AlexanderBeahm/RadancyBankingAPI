@@ -7,11 +7,12 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Folder Include="Implementations\" />
+    <PackageReference Include="Microsoft.Extensions.Logging.Abstractions" Version="6.0.1" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\RadancyBanking.DomainModels\RadancyBanking.DomainModels.csproj" />
+    <ProjectReference Include="..\RandacyBanking.Repositories\RandacyBanking.Repositories.csproj" />
   </ItemGroup>
 
 </Project>
