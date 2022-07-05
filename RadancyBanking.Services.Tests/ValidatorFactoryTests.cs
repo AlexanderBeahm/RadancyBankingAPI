@@ -23,7 +23,7 @@ namespace RadancyBanking.Services.Tests
         {
             IValidatorFactory validatorFactory = new ValidatorFactory();
             var validator = validatorFactory.GenerateTransactionValidator(Enumerations.TransactionType.Deposit);
-            Assert.IsType<WithdrawalTransactionValidation>(validator);
+            Assert.IsType<DepositTransactionValidation>(validator);
         }
     }
 }

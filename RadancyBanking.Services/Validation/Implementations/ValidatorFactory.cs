@@ -11,7 +11,13 @@ namespace RadancyBanking.Services.Validation.Implementations
     {
         public ITransactionValidation GenerateTransactionValidator(TransactionType type)
         {
-            throw new NotImplementedException();
+            ITransactionValidation validator = type switch
+            {
+                TransactionType.Withdrawal => new WithdrawalTransactionValidation(),
+                TransactionType.Deposit => new DepositTransactionValidation(),
+                _ => throw new InvalidOperationException()
+            };
+            return validator;
         }
     }
 }
