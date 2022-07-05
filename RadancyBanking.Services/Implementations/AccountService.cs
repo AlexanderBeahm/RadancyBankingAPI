@@ -1,5 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
 using RadancyBanking.DomainModels;
+using RadancyBanking.Services.Validation;
 using RandacyBanking.Repositories;
 using System;
 using System.Collections.Generic;
@@ -14,12 +15,14 @@ namespace RadancyBanking.Services.Implementations
         private readonly ILogger<AccountService> logger;
         private readonly IAccountRepository accountRepository;
         private readonly IUserRepository userRepository;
+        private readonly IValidatorFactory validatorFactory;
 
-        public AccountService(ILogger<AccountService> logger, IAccountRepository accountRepository, IUserRepository userRepository)
+        public AccountService(ILogger<AccountService> logger, IAccountRepository accountRepository, IUserRepository userRepository, IValidatorFactory validatorFactory)
         {
             this.logger = logger;
             this.accountRepository = accountRepository;
             this.userRepository = userRepository;
+            this.validatorFactory = validatorFactory;
         }
 
         public UserAccount ApplyTransaction(int id, AccountTransaction transaction)
