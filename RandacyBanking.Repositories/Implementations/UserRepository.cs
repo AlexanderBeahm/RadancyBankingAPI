@@ -13,19 +13,14 @@ namespace RandacyBanking.Repositories.Implementations
         // In most cases, I would inject a DB connector of some sort but due to project and time restrictions, I will just make this a static dictionary.
 
         private static Dictionary<int, User> userDictionary = new Dictionary<int, User>();
-        private readonly ILogger<AccountRepository> logger;
+        private readonly ILogger<UserRepository> logger;
 
-        public UserRepository(ILogger<AccountRepository> logger)
+        public UserRepository(ILogger<UserRepository> logger)
         {
             this.logger = logger;
         }
 
-        public void CreateUser(User user)
-        {
-            throw new NotImplementedException();
-        }
-
-        public void DeleteUser(int id)
+        public int CreateUser(User user)
         {
             throw new NotImplementedException();
         }

@@ -10,7 +10,6 @@ namespace RandacyBanking.Repositories
     public interface IUserRepository
     {
         User GetUser(int id);
-        void CreateUser(User user);
-        void DeleteUser(int id);
+        int CreateUser(User user);
     }
 }
