@@ -7,8 +7,8 @@ using System.Threading.Tasks;
 
 namespace RadancyBanking.Services.Validation
 {
-    internal interface ITransactionValidation
+    public interface ITransactionValidation
     {
-        bool Validate(UserAccount account, AccountTransaction transaction);
+        Tuple<bool, string> Validate(UserAccount account, AccountTransaction transaction);
     }
 }
