@@ -13,6 +13,7 @@ namespace RandacyBanking.Repositories.Implementations
         // In most cases, I would inject a DB connector of some sort but due to project and time restrictions, I will just make this a static dictionary.
 
         private static Dictionary<int, User> userDictionary = new Dictionary<int, User>();
+        private static int userIdNextNumber = 1;
         private readonly ILogger<UserRepository> logger;
 
         public UserRepository(ILogger<UserRepository> logger)
@@ -22,12 +23,34 @@ namespace RandacyBanking.Repositories.Implementations
 
         public int CreateUser(User user)
         {
-            throw new NotImplementedException();
+            if (userDictionary.Any(x => string.Equals(x.Value.GivenName, user.GivenName) && string.Equals(x.Value.FamilyName, user.FamilyName)))
+            {
+                return -1;
+            }
+
+            user.Id = userIdNextNumber;
+            var added = userDictionary.TryAdd(user.Id, user);
+            if (!added)
+            {
+                return -1;
+            }
+            IterateNextNumber();
+            return user.Id;
         }
 
         public User GetUser(int id)
         {
-            throw new NotImplementedException();
+            bool found = userDictionary.TryGetValue(id, out var user);
+            if (!found)
+            {
+                return null;
+            }
+            return user;
+        }
+
+        private void IterateNextNumber()
+        {
+            userIdNextNumber++;
         }
     }
 }

@@ -13,7 +13,10 @@ namespace RandacyBanking.Repositories.Implementations
         // In most cases, I would inject a DB connector of some sort but due to project and time restrictions, I will just make this a static dictionary.
 
         private static Dictionary<int, UserAccount> accountDictionary = new Dictionary<int, UserAccount>();
+        private static int accountIdNextNumber = 1;
         private readonly ILogger<AccountRepository> logger;
+
+        //TODO Fix up returns to make better logical sense in error processing.
 
         public AccountRepository(ILogger<AccountRepository> logger)
         {
@@ -22,27 +25,56 @@ namespace RandacyBanking.Repositories.Implementations
 
         public int CreateAccount(UserAccount account)
         {
-            throw new NotImplementedException();
+            account.Id = accountIdNextNumber;
+            var added = accountDictionary.TryAdd(account.Id, account);
+            if (!added)
+            {
+                return -1;
+            }
+            
+            IterateNextNumber();
+            return account.Id;
         }
 
         public void DeleteAccount(int id)
         {
-            throw new NotImplementedException();
+            bool found = accountDictionary.TryGetValue(id, out var account);
+            if (!found)
+            {
+                return;
+            }
+            accountDictionary.Remove(id);
         }
 
         public UserAccount GetAccount(int id)
         {
-            throw new NotImplementedException();
+            bool found = accountDictionary.TryGetValue(id, out var account);
+            if (!found)
+            {
+                return null;
+            }
+            return account;
         }
 
         public IEnumerable<UserAccount> GetAccountsForUser(int userId)
         {
-            throw new NotImplementedException();
+            var accounts = accountDictionary.Values.Where(x => x.UserId == userId).ToList();
+            return accounts;
         }
 
         public void UpdateAccount(UserAccount account)
         {
-            throw new NotImplementedException();
+            bool found = accountDictionary.TryGetValue(account.Id, out var foundAccount);
+            if (!found)
+            {
+                return;
+            }
+            foundAccount = account;
+        }
+
+        private void IterateNextNumber()
+        {
+            accountIdNextNumber++;
         }
     }
 }

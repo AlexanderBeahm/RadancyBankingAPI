@@ -50,7 +50,7 @@ namespace RadancyBanking.Repositories.Tests
             {
                 Id = 0,
                 Balance = 1000.00m,
-                UserId = 1,
+                UserId = 2,
                 CorrelationId = Guid.NewGuid(),
                 Created = new DateTime(),
                 Updated = new DateTime()
@@ -70,7 +70,7 @@ namespace RadancyBanking.Repositories.Tests
             var logger = Mock.Of<ILogger<AccountRepository>>();
             IAccountRepository accountRepository = new AccountRepository(logger);
 
-            var userIdToGet = 1;
+            var userIdToGet = 3;
             var expectedSize = 2;
 
             UserAccount account1 = new UserAccount
@@ -97,7 +97,7 @@ namespace RadancyBanking.Repositories.Tests
             {
                 Id = 0,
                 Balance = 1002.00m,
-                UserId = 2,
+                UserId = 4,
                 CorrelationId = Guid.NewGuid(),
                 Created = new DateTime(),
                 Updated = new DateTime()
@@ -117,14 +117,14 @@ namespace RadancyBanking.Repositories.Tests
             var logger = Mock.Of<ILogger<AccountRepository>>();
             IAccountRepository accountRepository = new AccountRepository(logger);
 
-            var userIdToGet = 3;
+            var userIdToGet = 100;
             var expectedSize = 0;
 
             UserAccount account1 = new UserAccount
             {
                 Id = 0,
                 Balance = 1000.00m,
-                UserId = userIdToGet,
+                UserId = 5,
                 CorrelationId = Guid.NewGuid(),
                 Created = new DateTime(),
                 Updated = new DateTime()
@@ -134,7 +134,7 @@ namespace RadancyBanking.Repositories.Tests
             {
                 Id = 0,
                 Balance = 1001.00m,
-                UserId = userIdToGet,
+                UserId = 5,
                 CorrelationId = Guid.NewGuid(),
                 Created = new DateTime(),
                 Updated = new DateTime()
@@ -144,7 +144,7 @@ namespace RadancyBanking.Repositories.Tests
             {
                 Id = 0,
                 Balance = 1002.00m,
-                UserId = 2,
+                UserId = 6,
                 CorrelationId = Guid.NewGuid(),
                 Created = new DateTime(),
                 Updated = new DateTime()
@@ -168,7 +168,7 @@ namespace RadancyBanking.Repositories.Tests
             {
                 Id = 0,
                 Balance = 1000.00m,
-                UserId = 1,
+                UserId = 7,
                 CorrelationId = Guid.NewGuid(),
                 Created = new DateTime(),
                 Updated = new DateTime()
@@ -200,7 +200,7 @@ namespace RadancyBanking.Repositories.Tests
             {
                 Id = 0,
                 Balance = 1000.00m,
-                UserId = 1,
+                UserId = 8,
                 CorrelationId = Guid.NewGuid(),
                 Created = new DateTime(),
                 Updated = new DateTime()
