@@ -20,7 +20,7 @@ namespace RandacyBanking.Repositories.Implementations
             this.logger = logger;
         }
 
-        public void CreateAccount(UserAccount account)
+        public int CreateAccount(UserAccount account)
         {
             throw new NotImplementedException();
         }
@@ -31,6 +31,11 @@ namespace RandacyBanking.Repositories.Implementations
         }
 
         public UserAccount GetAccount(int id)
+        {
+            throw new NotImplementedException();
+        }
+
+        public IEnumerable<UserAccount> GetAccountsForUser(int userId)
         {
             throw new NotImplementedException();
         }
