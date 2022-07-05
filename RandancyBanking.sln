@@ -15,11 +15,11 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RadancyBanking.DomainModels
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RadancyBanking.DataModels", "RadancyBanking.DataModels\RadancyBanking.DataModels.csproj", "{8657F7E5-E948-4738-B9F7-30AA24D1BFC9}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RadancyBanking.Services.Tests", "..\RadancyBanking.Services.Tests\RadancyBanking.Services.Tests.csproj", "{3C66ECEC-4592-4D38-9C6E-3299FC53686F}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RadancyBanking.Repositories.Tests", "RadancyBanking.Repositories.Tests\RadancyBanking.Repositories.Tests.csproj", "{DF8592CE-FAF3-45A0-95DF-7AF76BD453E9}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RadancyBanking.Repositories.Tests", "..\RadancyBanking.Repositories.Tests\RadancyBanking.Repositories.Tests.csproj", "{31E48EC2-8581-4A72-95F8-03DB525A22CF}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RadancyBanking.Services.Tests", "RadancyBanking.Services.Tests\RadancyBanking.Services.Tests.csproj", "{DC72DF69-4123-4317-9D41-56FFEACAB538}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "RadancyBanking.Enumerations", "..\RadancyBanking.Enumerations\RadancyBanking.Enumerations.csproj", "{EF70B87D-E195-4732-92E1-D89E9707B8EE}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RadancyBanking.Enumerations", "RadancyBanking.Enumerations\RadancyBanking.Enumerations.csproj", "{FE0B243F-B21B-4B67-B85B-1A343A1531DE}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -51,18 +51,18 @@ Global
 		{8657F7E5-E948-4738-B9F7-30AA24D1BFC9}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{8657F7E5-E948-4738-B9F7-30AA24D1BFC9}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{8657F7E5-E948-4738-B9F7-30AA24D1BFC9}.Release|Any CPU.Build.0 = Release|Any CPU
-		{3C66ECEC-4592-4D38-9C6E-3299FC53686F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{3C66ECEC-4592-4D38-9C6E-3299FC53686F}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{3C66ECEC-4592-4D38-9C6E-3299FC53686F}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{3C66ECEC-4592-4D38-9C6E-3299FC53686F}.Release|Any CPU.Build.0 = Release|Any CPU
-		{31E48EC2-8581-4A72-95F8-03DB525A22CF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{31E48EC2-8581-4A72-95F8-03DB525A22CF}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{31E48EC2-8581-4A72-95F8-03DB525A22CF}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{31E48EC2-8581-4A72-95F8-03DB525A22CF}.Release|Any CPU.Build.0 = Release|Any CPU
-		{EF70B87D-E195-4732-92E1-D89E9707B8EE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{EF70B87D-E195-4732-92E1-D89E9707B8EE}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{EF70B87D-E195-4732-92E1-D89E9707B8EE}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{EF70B87D-E195-4732-92E1-D89E9707B8EE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DF8592CE-FAF3-45A0-95DF-7AF76BD453E9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DF8592CE-FAF3-45A0-95DF-7AF76BD453E9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DF8592CE-FAF3-45A0-95DF-7AF76BD453E9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DF8592CE-FAF3-45A0-95DF-7AF76BD453E9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DC72DF69-4123-4317-9D41-56FFEACAB538}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DC72DF69-4123-4317-9D41-56FFEACAB538}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DC72DF69-4123-4317-9D41-56FFEACAB538}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DC72DF69-4123-4317-9D41-56FFEACAB538}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FE0B243F-B21B-4B67-B85B-1A343A1531DE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FE0B243F-B21B-4B67-B85B-1A343A1531DE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FE0B243F-B21B-4B67-B85B-1A343A1531DE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FE0B243F-B21B-4B67-B85B-1A343A1531DE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
