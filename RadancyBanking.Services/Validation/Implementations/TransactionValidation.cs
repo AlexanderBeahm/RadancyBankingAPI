@@ -11,7 +11,7 @@ namespace RadancyBanking.Services.Validation.Implementations
     {
         public virtual Tuple<bool, string> Validate(UserAccount account, AccountTransaction transaction)
         {
-            throw new NotImplementedException();
+            return new Tuple<bool, string>(true, string.Empty);
         }
     }
 }
