@@ -3,24 +3,28 @@
 
 ## How-To
 
-To run via `docker-compose`, use the following command:
+To run via `docker-compose`, use the following command in the root directory of the solution:
 ```
 docker-compose up -d
 ```
 
 The `-d` is an optional flag to detach from the console when the containers start running, can leave it out if you want to view console output.
 
-After containers are confirmed running, the API will be hosted at the following URL:
+After containers are confirmed running, the root API will be hosted at the following URL:
 
-`https://localhost:8081/api`
+https://localhost:8081/api
+
+To test this is running correctly, you can hit the following health check endpoint.
+
+https://localhost:8081/health
 
 The SwaggerUI page can be accessed at the following URL:
 
-`https://localhost:8081/swagger`
+https://localhost:8081/swagger
 
 Similarly, the swagger.json file can be accessed at the following URL:
 
-`https://localhost:8081/swagger/api/v1/swagger.json`
+https://localhost:8081/swagger/v1/swagger.json
 
 ---
 
