@@ -27,22 +27,79 @@ namespace RadancyBanking.Services.Implementations
 
         public UserAccount ApplyTransaction(int id, AccountTransaction transaction)
         {
-            throw new NotImplementedException();
+            var validator = validatorFactory.GenerateTransactionValidator(transaction.TransactionType);
+            var foundAccount = accountRepository.GetAccount(id);
+
+            //TODO Implement automapping if time allows
+            var domainAccount = new UserAccount
+            {
+                Balance = foundAccount.Balance,
+                Id = foundAccount.Id,
+                Name = foundAccount.Name,
+                UserId = foundAccount.UserId
+            };
+
+            var validationResult = validator.Validate(domainAccount, transaction);
+            if (!validationResult.Item1)
+            {
+                return null;
+            }
+
+            transaction.ApplyTransaction(domainAccount);
+
+            foundAccount.Updated = DateTime.UtcNow;
+            foundAccount.Balance = domainAccount.Balance;
+
+            accountRepository.UpdateAccount(foundAccount);
+            return domainAccount;
         }
 
         public UserAccount CreateAccount(CreateAccount createAccount)
         {
-            throw new NotImplementedException();
+            var dataAccount = new DataModels.UserAccount()
+            {
+                Balance = createAccount.InitialDeposit,
+                Id = 0,
+                Created = DateTime.UtcNow,
+                Updated = DateTime.UtcNow,
+                Name = createAccount.Name,
+                UserId = createAccount.UserId,
+                CorrelationId = Guid.NewGuid()
+            };
+
+            int generatedId = accountRepository.CreateAccount(dataAccount);
+
+            var domainAccount = new UserAccount
+            {
+                Balance = createAccount.InitialDeposit,
+                Id = generatedId,
+                Name = createAccount.Name,
+                UserId = createAccount.UserId
+            };
+
+            return domainAccount;
         }
 
         public void DeleteAccount(int id)
         {
-            throw new NotImplementedException();
+            accountRepository.DeleteAccount(id);
         }
 
         public UserAccount GetAccount(int id)
         {
-            throw new NotImplementedException();
+            var foundAccount = accountRepository.GetAccount(id);
+            if(foundAccount == null)
+            {
+                return null;
+            }
+
+            return new UserAccount
+            {
+                Balance = foundAccount.Balance,
+                Name = foundAccount.Name,
+                Id = foundAccount.Id,
+                UserId = foundAccount.UserId
+            };
         }
     }
 }

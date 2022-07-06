@@ -15,6 +15,8 @@ namespace RadancyBanking.DomainModels
         public decimal Amount { get; set; }
 
         public virtual TransactionType TransactionType => throw new InvalidOperationException();
+
+        public virtual decimal ApplyTransaction(UserAccount userAccount) => throw new InvalidOperationException();
     
     }
 }

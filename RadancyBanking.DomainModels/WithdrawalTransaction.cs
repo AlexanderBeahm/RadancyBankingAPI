@@ -10,5 +10,6 @@ namespace RadancyBanking.DomainModels
     public class WithdrawalTransaction : AccountTransaction
     {
          public override TransactionType TransactionType => TransactionType.Withdrawal;
+        public override decimal ApplyTransaction(UserAccount account) => account.Balance -= Amount;
     }
 }
