@@ -1,9 +1,11 @@
 # RandancyBanking
 
 
-## How-To
+## How-To Run
 
-To run via `docker-compose`, use the following command in the root directory of the solution:
+First, clone or download this repository.
+
+In the root directory of the repository, run the following command:
 ```
 docker-compose up -d
 ```
@@ -20,7 +22,7 @@ https://localhost:8081/health
 
 The SwaggerUI page can be accessed at the following URL:
 
-https://localhost:8081/swagger
+https://localhost:8081/swagger/index.html
 
 Similarly, the swagger.json file can be accessed at the following URL:
 
@@ -44,3 +46,4 @@ obtain it. This allows for better agnostic database design and helps implement s
 - As seen in the services layer, I am manually creating objects to map between. In this small scenario, this works out, however it would be better to either use an object mapper like Automapper on that services layer or a layer in-between services and repositories.
 - Adding configuration store and settings in the appSettings.json/docker-file to control environment variables more closely. For example, the particulars of business logic validations (90% withdrawal limit) could be a number defined in such configuration.
 - In particular to the validation strategy I went down, I think I could enhance it more with some form of builder pattern or more subclasses to handle multiple validation steps.
+- Ran into some issues with setting up Swashbuckle that could have been resolved by tinkering with the app building on routes I believe, but for interest of time I have decided to include base routes as part of action definitions.
