@@ -31,7 +31,7 @@ namespace RadancyBanking.Controllers
         public ActionResult<UserAccount> CreateAccount([FromBody][Required] CreateAccount createAccount)
         {
             var account = accountService.CreateAccount(createAccount);
-            return account == null ? BadRequest() : Ok(account);
+            return account == null ? BadRequest() : Created(@$"/{account.Id}", account);
         }
 
         /// <summary>

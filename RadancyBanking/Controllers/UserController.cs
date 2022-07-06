@@ -43,7 +43,7 @@ namespace RadancyBanking.Controllers
         public ActionResult<User> CreateUser([FromBody][Required]CreateUser createUser)
         {
             var user = userService.CreateUser(createUser);
-            return user == null ? BadRequest() : Ok(user);
+            return user == null ? BadRequest() : Created(@$"/{user.Id}", user);
         }
     }
 }
