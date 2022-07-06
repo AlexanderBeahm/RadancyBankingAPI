@@ -9,7 +9,7 @@ namespace RadancyBanking.Controllers
     /// <summary>
     /// Endpoint to handle account visibility and transactions.
     /// </summary>
-    [Route("api/[controller]")]
+    [Route("/api/[controller]")]
     [ApiController]
     public class AccountController : ControllerBase
     {
@@ -39,7 +39,7 @@ namespace RadancyBanking.Controllers
         /// </summary>
         /// <param name="accountId">Account Id</param>
         /// <returns></returns>
-        [HttpDelete("/{accountId}")]
+        [HttpDelete("/api/[controller]/{accountId}")]
         public ActionResult DeleteAccount([FromRoute][Required][Range(1, int.MaxValue)] int accountId)
         {
             accountService.DeleteAccount(accountId);
@@ -52,7 +52,7 @@ namespace RadancyBanking.Controllers
         /// <param name="accountId">Account Id</param>
         /// <param name="transaction">Transaction object for withdrawal</param>
         /// <returns>Updated account</returns>
-        [HttpPatch("/{accountId}/Withdraw")]
+        [HttpPatch("/api/[controller]/{accountId}/Withdraw")]
         public ActionResult<UserAccount> Withdraw([FromRoute][Required][Range(1, int.MaxValue)] int accountId, [FromBody] WithdrawalTransaction transaction)
         {
             var account = accountService.ApplyTransaction(accountId, transaction);
@@ -65,7 +65,7 @@ namespace RadancyBanking.Controllers
         /// <param name="accountId">Account id</param>
         /// <param name="transaction">Transaction object for deposit</param>
         /// <returns>Updated account</returns>
-        [HttpPatch("/{accountId}/Deposit")]
+        [HttpPatch("/api/[controller]/{accountId}/Deposit")]
         public ActionResult<UserAccount>Deposit([FromRoute] [Required] [Range(1, int.MaxValue)] int accountId, [FromBody] WithdrawalTransaction transaction)
         {
             var account = accountService.ApplyTransaction(accountId, transaction);

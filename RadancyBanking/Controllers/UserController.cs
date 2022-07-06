@@ -9,7 +9,7 @@ namespace RadancyBanking.Controllers
     /// <summary>
     /// Endpoint to handle user creation and management.
     /// </summary>
-    [Route("api/[controller]")]
+    [Route("/api/[controller]")]
     [ApiController]
     public class UserController : ControllerBase
     {
@@ -27,7 +27,7 @@ namespace RadancyBanking.Controllers
         /// </summary>
         /// <param name="userId">User Id</param>
         /// <returns>Found user</returns>
-        [HttpGet("/{userId}")]
+        [HttpGet("/api/[controller]/{userId}")]
         public ActionResult<User> GetUser([FromRoute][Required][Range(1, int.MaxValue)] int userId)
         {
             var user = userService.GetUser(userId);
