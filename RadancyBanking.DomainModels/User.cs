@@ -15,6 +15,12 @@ namespace RadancyBanking.DomainModels
         /// Generated system id.
         /// </summary>
         public int Id { get; set; }
+
+        /// <summary>
+        /// Username for user
+        /// </summary>
+        public string UserName { get; set; }
+
         /// <summary>
         /// Given (first) name
         /// </summary>

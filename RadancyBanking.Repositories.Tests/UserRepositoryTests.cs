@@ -22,6 +22,7 @@ namespace RadancyBanking.Repositories.Tests
             User user = new User {
                 FamilyName = "Example",
                 GivenName = "Jack",
+                UserName = "test",
                 Id = 0,
                 CorrelationId = Guid.NewGuid(),
                 Created = new DateTime(),
@@ -42,6 +43,7 @@ namespace RadancyBanking.Repositories.Tests
             {
                 FamilyName = "Example",
                 GivenName = "Jill",
+                UserName = "test2",
                 Id = 0,
                 CorrelationId = Guid.NewGuid(),
                 Created = new DateTime(),
@@ -63,6 +65,7 @@ namespace RadancyBanking.Repositories.Tests
             {
                 FamilyName = "Example",
                 GivenName = "John",
+                UserName = "test3",
                 Id = 0,
                 CorrelationId = Guid.NewGuid(),
                 Created = new DateTime(),
@@ -91,6 +94,7 @@ namespace RadancyBanking.Repositories.Tests
             {
                 FamilyName = "Example",
                 GivenName = "Jeff",
+                UserName = "test4",
                 Id = 10,
                 CorrelationId = Guid.NewGuid(),
                 Created = new DateTime(),

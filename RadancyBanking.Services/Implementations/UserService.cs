@@ -30,6 +30,7 @@ namespace RadancyBanking.Services.Implementations
                 Created = DateTime.UtcNow,
                 FamilyName = createUser.FamilyName,
                 GivenName = createUser.GivenName,
+                UserName = createUser.UserName,
                 Id = 0,
                 Updated = DateTime.UtcNow
             };
@@ -40,6 +41,7 @@ namespace RadancyBanking.Services.Implementations
             {
                 FamilyName = createUser.FamilyName,
                 GivenName = createUser.GivenName,
+                UserName = createUser.UserName,
                 Id = generatedId,
                 Accounts = new List<UserAccount>()
             };
@@ -61,6 +63,7 @@ namespace RadancyBanking.Services.Implementations
                 FamilyName = foundUser.FamilyName,
                 GivenName = foundUser.GivenName,
                 Id = foundUser.Id,
+                UserName = foundUser.UserName,
                 Accounts = accounts.Select(x=> new UserAccount { Balance = x.Balance, Id = x.Id, Name = x.Name, UserId = x.UserId}).ToList()
             };
         }

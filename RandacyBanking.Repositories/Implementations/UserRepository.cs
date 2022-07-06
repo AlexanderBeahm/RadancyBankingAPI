@@ -23,7 +23,7 @@ namespace RandacyBanking.Repositories.Implementations
 
         public int CreateUser(User user)
         {
-            if (userDictionary.Any(x => string.Equals(x.Value.GivenName, user.GivenName) && string.Equals(x.Value.FamilyName, user.FamilyName)))
+            if (userDictionary.Any(x => string.Equals(x.Value.UserName, user.UserName, StringComparison.OrdinalIgnoreCase)))
             {
                 return -1;
             }

@@ -15,8 +15,8 @@ namespace RadancyBanking.DomainModels
         /// <summary>
         /// UserName to key on.
         /// </summary>
-        [Required]
-        [StringLength(maximumLength: 255, MinimumLength = 2)]
+        [Required(ErrorMessage = "UserName required")]
+        [StringLength(maximumLength: 255, MinimumLength = 1, ErrorMessage = "Username is required and have length in range (1-255)")]
         public string? UserName { get; set; }
         /// <summary>
         /// Given (first) name, if provided.
