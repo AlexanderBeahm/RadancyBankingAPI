@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace RadancyBanking.DomainModels
+﻿namespace RadancyBanking.DomainModels
 {
     /// <summary>
     /// Represents a banking user.
@@ -24,7 +18,7 @@ namespace RadancyBanking.DomainModels
         /// <summary>
         /// Given (first) name
         /// </summary>
-        public string? GivenName { get; set; } 
+        public string? GivenName { get; set; }
         /// <summary>
         /// Family (last) name
         /// </summary>

@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using RadancyBanking.DomainModels;
 using RadancyBanking.Services;
 using System.ComponentModel.DataAnnotations;
@@ -40,7 +39,7 @@ namespace RadancyBanking.Controllers
         /// <param name="createUser">User creation payload</param>
         /// <returns>Created user</returns>
         [HttpPost()]
-        public ActionResult<User> CreateUser([FromBody][Required]CreateUser createUser)
+        public ActionResult<User> CreateUser([FromBody][Required] CreateUser createUser)
         {
             var user = userService.CreateUser(createUser);
             return user == null ? BadRequest() : Created(@$"/{user.Id}", user);

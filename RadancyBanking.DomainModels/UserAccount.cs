@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-
-namespace RadancyBanking.DomainModels
+﻿namespace RadancyBanking.DomainModels
 {
     /// <summary>
     /// Account associated to a banking User

@@ -1,10 +1,5 @@
 ﻿using RadancyBanking.Enumerations;
-using System;
-using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace RadancyBanking.DomainModels
 {
@@ -24,7 +19,7 @@ namespace RadancyBanking.DomainModels
         /// Transaction type
         /// </summary>
         public virtual TransactionType GetTransactionType() => throw new InvalidOperationException();
-        
+
 
         /// <summary>
         /// Applies transaction to user account object.
@@ -33,6 +28,6 @@ namespace RadancyBanking.DomainModels
         /// <returns>New balance value</returns>
         /// <exception cref="InvalidOperationException"></exception>
         public virtual decimal ApplyTransaction(UserAccount userAccount) => throw new InvalidOperationException();
-    
+
     }
 }

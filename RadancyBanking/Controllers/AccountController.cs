@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using RadancyBanking.DomainModels;
 using RadancyBanking.Services;
 using System.ComponentModel.DataAnnotations;
@@ -66,7 +65,7 @@ namespace RadancyBanking.Controllers
         /// <param name="transaction">Transaction object for deposit</param>
         /// <returns>Updated account</returns>
         [HttpPatch("/api/[controller]/{accountId}/Deposit")]
-        public ActionResult<UserAccount>Deposit([FromRoute] [Required] [Range(1, int.MaxValue)] int accountId, [FromBody] WithdrawalTransaction transaction)
+        public ActionResult<UserAccount> Deposit([FromRoute][Required][Range(1, int.MaxValue)] int accountId, [FromBody] WithdrawalTransaction transaction)
         {
             var account = accountService.ApplyTransaction(accountId, transaction);
             return account == null ? BadRequest() : Ok(account);

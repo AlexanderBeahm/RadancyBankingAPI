@@ -2,11 +2,6 @@
 using RadancyBanking.DomainModels;
 using RadancyBanking.Services.Validation;
 using RandacyBanking.Repositories;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace RadancyBanking.Services.Implementations
 {
@@ -30,7 +25,7 @@ namespace RadancyBanking.Services.Implementations
             var validator = validatorFactory.GenerateTransactionValidator(transaction.GetTransactionType());
             var foundAccount = accountRepository.GetAccount(id);
 
-            if(foundAccount == null)
+            if (foundAccount == null)
             {
                 return null;
             }
@@ -93,7 +88,7 @@ namespace RadancyBanking.Services.Implementations
         public UserAccount GetAccount(int id)
         {
             var foundAccount = accountRepository.GetAccount(id);
-            if(foundAccount == null)
+            if (foundAccount == null)
             {
                 return null;
             }
