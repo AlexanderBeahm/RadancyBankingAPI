@@ -26,7 +26,7 @@ namespace RadancyBanking.Controllers
         /// </summary>
         /// <param name="userId">User Id</param>
         /// <returns>Found user</returns>
-        [HttpGet("/api/[controller]/{userId}")]
+        [HttpGet("{userId}")]
         public ActionResult<User> GetUser([FromRoute][Required][Range(1, int.MaxValue, ErrorMessage = "Id must be greater than 0.")] int userId)
         {
             var user = userService.GetUser(userId);

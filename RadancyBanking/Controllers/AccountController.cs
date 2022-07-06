@@ -38,7 +38,7 @@ namespace RadancyBanking.Controllers
         /// </summary>
         /// <param name="accountId">Account Id</param>
         /// <returns></returns>
-        [HttpDelete("/api/[controller]/{accountId}")]
+        [HttpDelete("{accountId}")]
         public ActionResult DeleteAccount([FromRoute][Required][Range(1, int.MaxValue, ErrorMessage = "Id must be greater than 0.")] int accountId)
         {
             accountService.DeleteAccount(accountId);
@@ -51,7 +51,7 @@ namespace RadancyBanking.Controllers
         /// <param name="accountId">Account Id</param>
         /// <param name="transaction">Transaction object for withdrawal</param>
         /// <returns>Updated account</returns>
-        [HttpPatch("/api/[controller]/{accountId}/Withdraw")]
+        [HttpPatch("{accountId}/Withdraw")]
         public ActionResult<UserAccount> Withdraw([FromRoute][Required][Range(1, int.MaxValue, ErrorMessage = "Id must be greater than 0.")] int accountId, [FromBody] WithdrawalTransaction transaction)
         {
             var account = accountService.ApplyTransaction(accountId, transaction);
@@ -64,7 +64,7 @@ namespace RadancyBanking.Controllers
         /// <param name="accountId">Account id</param>
         /// <param name="transaction">Transaction object for deposit</param>
         /// <returns>Updated account</returns>
-        [HttpPatch("/api/[controller]/{accountId}/Deposit")]
+        [HttpPatch("{accountId}/Deposit")]
         public ActionResult<UserAccount> Deposit([FromRoute][Required][Range(1, int.MaxValue, ErrorMessage = "Id must be greater than 0.")] int accountId, [FromBody] WithdrawalTransaction transaction)
         {
             var account = accountService.ApplyTransaction(accountId, transaction);
