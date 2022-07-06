@@ -7,6 +7,6 @@ namespace RadancyBanking.Services
         UserAccount GetAccount(int id);
         UserAccount CreateAccount(CreateAccount createAccount);
         void DeleteAccount(int id);
-        UserAccount ApplyTransaction(int id, AccountTransaction transaction);
+        Tuple<UserAccount, string> ApplyTransaction(int id, AccountTransaction transaction);
     }
 }

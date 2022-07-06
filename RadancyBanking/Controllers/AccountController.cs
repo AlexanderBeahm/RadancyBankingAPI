@@ -59,7 +59,7 @@ namespace RadancyBanking.Controllers
         public ActionResult<UserAccount> Withdraw([FromRoute][Required][Range(1, int.MaxValue, ErrorMessage = "Id must be greater than 0.")] int accountId, [FromBody] WithdrawalTransaction transaction)
         {
             var account = accountService.ApplyTransaction(accountId, transaction);
-            return account == null ? BadRequest() : Ok(account);
+            return account.Item1 == null ? BadRequest(account.Item2) : Ok(account.Item1);
         }
 
         /// <summary>
@@ -74,7 +74,7 @@ namespace RadancyBanking.Controllers
         public ActionResult<UserAccount> Deposit([FromRoute][Required][Range(1, int.MaxValue, ErrorMessage = "Id must be greater than 0.")] int accountId, [FromBody] WithdrawalTransaction transaction)
         {
             var account = accountService.ApplyTransaction(accountId, transaction);
-            return account == null ? BadRequest() : Ok(account);
+            return account.Item1 == null ? BadRequest(account.Item2) : Ok(account.Item1);
         }
     }
 }
