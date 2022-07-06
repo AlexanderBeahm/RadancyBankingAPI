@@ -27,7 +27,7 @@ namespace RadancyBanking.Services.Implementations
 
         public UserAccount ApplyTransaction(int id, AccountTransaction transaction)
         {
-            var validator = validatorFactory.GenerateTransactionValidator(transaction.TransactionType);
+            var validator = validatorFactory.GenerateTransactionValidator(transaction.GetTransactionType());
             var foundAccount = accountRepository.GetAccount(id);
 
             if(foundAccount == null)
