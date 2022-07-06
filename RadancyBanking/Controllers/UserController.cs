@@ -19,13 +19,6 @@ namespace RadancyBanking.Controllers
             this.userService = userService;
         }
 
-        [HttpGet()]
-        public ActionResult Ping()
-        {
-            logger.LogDebug("Pinged UserController");
-            return Ok();
-        }
-
         [HttpGet("/{userId}")]
         public ActionResult<User> GetUser([FromRoute][Required][Range(1, int.MaxValue)] int userId)
         {

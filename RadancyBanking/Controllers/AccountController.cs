@@ -19,13 +19,6 @@ namespace RadancyBanking.Controllers
             this.accountService = accountService;
         }
 
-        [HttpGet()]
-        public ActionResult Ping()
-        {
-            _logger.LogDebug("Pinged AccountController");
-            return Ok();
-        }
-
         [HttpPost()]
         public ActionResult<UserAccount> CreateAccount([FromBody][Required] CreateAccount createAccount)
         {
