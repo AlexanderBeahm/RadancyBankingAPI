@@ -12,7 +12,7 @@ namespace RadancyBanking.DomainModels
         /// The amount for the transaction, enforced to be a positive decimal.
         /// </summary>
         [Required]
-        [Range(0.0, Double.MaxValue)]
+        [Range(double.Epsilon, double.MaxValue, ErrorMessage = "Transaction amount must be greater than 0.")]
         public decimal Amount { get; set; }
 
         /// <summary>

@@ -27,7 +27,7 @@ namespace RadancyBanking.Controllers
         /// <param name="userId">User Id</param>
         /// <returns>Found user</returns>
         [HttpGet("/api/[controller]/{userId}")]
-        public ActionResult<User> GetUser([FromRoute][Required][Range(1, int.MaxValue)] int userId)
+        public ActionResult<User> GetUser([FromRoute][Required][Range(1, int.MaxValue, ErrorMessage = "Id must be greater than 0.")] int userId)
         {
             var user = userService.GetUser(userId);
             return user == null ? NotFound($@"User not found with id {userId}") : Ok(user);
@@ -39,7 +39,7 @@ namespace RadancyBanking.Controllers
         /// <param name="createUser">User creation payload</param>
         /// <returns>Created user</returns>
         [HttpPost()]
-        public ActionResult<User> CreateUser([FromBody][Required] CreateUser createUser)
+        public ActionResult<User> CreateUser([FromBody][Required(ErrorMessage = "CreateUser body payload required.")] CreateUser createUser)
         {
             var user = userService.CreateUser(createUser);
             return user == null ? BadRequest() : Created(@$"/{user.Id}", user);
