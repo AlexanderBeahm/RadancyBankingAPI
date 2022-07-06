@@ -27,6 +27,7 @@ namespace RadancyBanking.Controllers
         /// <param name="createAccount">Object representing account parameters</param>
         /// <returns>Created user account</returns>
         [HttpPost()]
+        [ProducesResponseType(StatusCodes.Status201Created)]
         public ActionResult<UserAccount> CreateAccount([FromBody][Required(ErrorMessage = "CreateAccount body required.")] CreateAccount createAccount)
         {
             var account = accountService.CreateAccount(createAccount);
@@ -39,6 +40,7 @@ namespace RadancyBanking.Controllers
         /// <param name="accountId">Account Id</param>
         /// <returns></returns>
         [HttpDelete("{accountId}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
         public ActionResult DeleteAccount([FromRoute][Required][Range(1, int.MaxValue, ErrorMessage = "Id must be greater than 0.")] int accountId)
         {
             accountService.DeleteAccount(accountId);
@@ -52,6 +54,8 @@ namespace RadancyBanking.Controllers
         /// <param name="transaction">Transaction object for withdrawal</param>
         /// <returns>Updated account</returns>
         [HttpPatch("{accountId}/Withdraw")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public ActionResult<UserAccount> Withdraw([FromRoute][Required][Range(1, int.MaxValue, ErrorMessage = "Id must be greater than 0.")] int accountId, [FromBody] WithdrawalTransaction transaction)
         {
             var account = accountService.ApplyTransaction(accountId, transaction);
@@ -65,6 +69,8 @@ namespace RadancyBanking.Controllers
         /// <param name="transaction">Transaction object for deposit</param>
         /// <returns>Updated account</returns>
         [HttpPatch("{accountId}/Deposit")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public ActionResult<UserAccount> Deposit([FromRoute][Required][Range(1, int.MaxValue, ErrorMessage = "Id must be greater than 0.")] int accountId, [FromBody] WithdrawalTransaction transaction)
         {
             var account = accountService.ApplyTransaction(accountId, transaction);

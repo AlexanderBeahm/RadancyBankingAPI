@@ -5,6 +5,13 @@ namespace RadancyBanking.DomainModels
     /// <summary>
     /// Domain model for creating new accounts.
     /// </summary>
+    /// <example>
+    /// {
+    ///     "userId": 2,
+    ///     "name": "Jack Example Savings",
+    ///     "initialDeposit": 300.00
+    /// }
+    /// </example>
     public class CreateAccount
     {
         /// <summary>
