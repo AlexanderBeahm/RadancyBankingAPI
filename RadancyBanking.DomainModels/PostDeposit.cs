@@ -6,8 +6,14 @@ using System.Threading.Tasks;
 
 namespace RadancyBanking.DomainModels
 {
+    /// <summary>
+    /// Deposit post transaction object
+    /// </summary>
     public class PostDeposit
     {
+        /// <summary>
+        /// DepositTransaction
+        /// </summary>
         public DepositTransaction? Transaction { get; set; }
     }
 }
