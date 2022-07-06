@@ -2,11 +2,6 @@
 using RadancyBanking.DomainModels;
 using RadancyBanking.Services.Validation;
 using RandacyBanking.Repositories;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace RadancyBanking.Services.Implementations
 {
@@ -25,14 +20,14 @@ namespace RadancyBanking.Services.Implementations
             this.validatorFactory = validatorFactory;
         }
 
-        public UserAccount ApplyTransaction(int id, AccountTransaction transaction)
+        public Tuple<UserAccount, string>  ApplyTransaction(int id, AccountTransaction transaction)
         {
             var validator = validatorFactory.GenerateTransactionValidator(transaction.GetTransactionType());
             var foundAccount = accountRepository.GetAccount(id);
 
-            if(foundAccount == null)
+            if (foundAccount == null)
             {
-                return null;
+                return new Tuple<UserAccount, string>(null, "Account not found");
             }
 
             //TODO Implement automapping if time allows
@@ -47,7 +42,7 @@ namespace RadancyBanking.Services.Implementations
             var validationResult = validator.Validate(domainAccount, transaction);
             if (!validationResult.Item1)
             {
-                return null;
+                return new Tuple<UserAccount, string>(null, validationResult.Item2);
             }
 
             transaction.ApplyTransaction(domainAccount);
@@ -56,7 +51,7 @@ namespace RadancyBanking.Services.Implementations
             foundAccount.Balance = domainAccount.Balance;
 
             accountRepository.UpdateAccount(foundAccount);
-            return domainAccount;
+            return new Tuple<UserAccount, string>(domainAccount, string.Empty);
         }
 
         public UserAccount CreateAccount(CreateAccount createAccount)
@@ -93,7 +88,7 @@ namespace RadancyBanking.Services.Implementations
         public UserAccount GetAccount(int id)
         {
             var foundAccount = accountRepository.GetAccount(id);
-            if(foundAccount == null)
+            if (foundAccount == null)
             {
                 return null;
             }

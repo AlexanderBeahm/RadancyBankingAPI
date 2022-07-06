@@ -1,10 +1,5 @@
 ﻿using Microsoft.Extensions.Logging;
 using RadancyBanking.DataModels;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace RandacyBanking.Repositories.Implementations
 {
@@ -31,7 +26,7 @@ namespace RandacyBanking.Repositories.Implementations
             {
                 return -1;
             }
-            
+
             IterateNextNumber();
             return account.Id;
         }

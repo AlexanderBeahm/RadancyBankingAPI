@@ -1,13 +1,8 @@
 ﻿using Microsoft.Extensions.Logging;
-using RandacyBanking.Repositories;
-using RandacyBanking.Repositories.Implementations;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using Moq;
 using RadancyBanking.DataModels;
+using RandacyBanking.Repositories;
+using RandacyBanking.Repositories.Implementations;
 
 namespace RadancyBanking.Repositories.Tests
 {
@@ -19,7 +14,8 @@ namespace RadancyBanking.Repositories.Tests
             var logger = Mock.Of<ILogger<UserRepository>>();
             IUserRepository userRepository = new UserRepository(logger);
 
-            User user = new User {
+            User user = new User
+            {
                 FamilyName = "Example",
                 GivenName = "Jack",
                 UserName = "test",

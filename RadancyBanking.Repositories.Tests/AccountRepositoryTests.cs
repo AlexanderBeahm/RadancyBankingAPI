@@ -3,11 +3,6 @@ using Moq;
 using RadancyBanking.DataModels;
 using RandacyBanking.Repositories;
 using RandacyBanking.Repositories.Implementations;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace RadancyBanking.Repositories.Tests
 {
@@ -207,7 +202,7 @@ namespace RadancyBanking.Repositories.Tests
             };
 
             var id = accountRepository.CreateAccount(account);
-            
+
             accountRepository.DeleteAccount(id);
 
             var foundAccount = accountRepository.GetAccount(id);

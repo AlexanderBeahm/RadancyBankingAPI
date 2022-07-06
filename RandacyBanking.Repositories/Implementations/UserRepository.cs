@@ -1,10 +1,5 @@
 ﻿using Microsoft.Extensions.Logging;
 using RadancyBanking.DataModels;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace RandacyBanking.Repositories.Implementations
 {

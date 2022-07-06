@@ -1,9 +1,4 @@
 ﻿using RadancyBanking.DomainModels;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace RadancyBanking.Services.Validation.Implementations
 {
@@ -23,7 +18,7 @@ namespace RadancyBanking.Services.Validation.Implementations
             var maximumWithdrawal = userAccount.Balance * WithdrawalMaximumPercentage;
             maximumWithdrawal = userAccount.Balance - maximumWithdrawal >= 100 ? maximumWithdrawal : userAccount.Balance - AccountMinimum;
 
-            if(transaction.Amount > maximumWithdrawal)
+            if (transaction.Amount > maximumWithdrawal)
             {
                 return Tuple.Create(false, string.Format("Maximum withdrawal amount exceeded. Accounts must have a minimum of {0:C} and withdrawals must not exceed {1}% of account balance.", AccountMinimum, WithdrawalMaximumPercentage * 100));
             }

@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.ComponentModel.DataAnnotations;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.ComponentModel.DataAnnotations;
 
 namespace RadancyBanking.DomainModels
 {
@@ -21,10 +16,16 @@ namespace RadancyBanking.DomainModels
         /// <summary>
         /// Given (first) name, if provided.
         /// </summary>
+
+        [StringLength(maximumLength: 255, MinimumLength = 0, ErrorMessage = "Given name must have length in range (0-255)")]
+
         public string? GivenName { get; set; }
         /// <summary>
         /// Family (last) name, if provided.
         /// </summary>
+
+        [StringLength(maximumLength: 255, MinimumLength = 0, ErrorMessage = "Username is required and have length in range (0-255)")]
+
         public string? FamilyName { get; set; }
     }
 }

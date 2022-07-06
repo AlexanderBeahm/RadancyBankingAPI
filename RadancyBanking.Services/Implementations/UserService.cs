@@ -1,11 +1,6 @@
 ﻿using Microsoft.Extensions.Logging;
 using RadancyBanking.DomainModels;
 using RandacyBanking.Repositories;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace RadancyBanking.Services.Implementations
 {
@@ -21,7 +16,7 @@ namespace RadancyBanking.Services.Implementations
             this.accountRepository = accountRepository;
             this.userRepository = userRepository;
         }
-        
+
         public User CreateUser(CreateUser createUser)
         {
             var user = new DataModels.User
@@ -51,7 +46,7 @@ namespace RadancyBanking.Services.Implementations
         {
             var foundUser = userRepository.GetUser(userId);
 
-            if(foundUser == null)
+            if (foundUser == null)
             {
                 return null;
             }
@@ -64,7 +59,7 @@ namespace RadancyBanking.Services.Implementations
                 GivenName = foundUser.GivenName,
                 Id = foundUser.Id,
                 UserName = foundUser.UserName,
-                Accounts = accounts.Select(x=> new UserAccount { Balance = x.Balance, Id = x.Id, Name = x.Name, UserId = x.UserId}).ToList()
+                Accounts = accounts.Select(x => new UserAccount { Balance = x.Balance, Id = x.Id, Name = x.Name, UserId = x.UserId }).ToList()
             };
         }
     }

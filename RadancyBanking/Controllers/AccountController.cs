@@ -1,5 +1,4 @@
-﻿using Microsoft.AspNetCore.Http;
-using Microsoft.AspNetCore.Mvc;
+﻿using Microsoft.AspNetCore.Mvc;
 using RadancyBanking.DomainModels;
 using RadancyBanking.Services;
 using System.ComponentModel.DataAnnotations;
@@ -28,7 +27,8 @@ namespace RadancyBanking.Controllers
         /// <param name="createAccount">Object representing account parameters</param>
         /// <returns>Created user account</returns>
         [HttpPost()]
-        public ActionResult<UserAccount> CreateAccount([FromBody][Required] CreateAccount createAccount)
+        [ProducesResponseType(StatusCodes.Status201Created)]
+        public ActionResult<UserAccount> CreateAccount([FromBody][Required(ErrorMessage = "CreateAccount body required.")] CreateAccount createAccount)
         {
             var account = accountService.CreateAccount(createAccount);
             return account == null ? BadRequest() : Created(@$"/{account.Id}", account);
@@ -39,8 +39,9 @@ namespace RadancyBanking.Controllers
         /// </summary>
         /// <param name="accountId">Account Id</param>
         /// <returns></returns>
-        [HttpDelete("/api/[controller]/{accountId}")]
-        public ActionResult DeleteAccount([FromRoute][Required][Range(1, int.MaxValue)] int accountId)
+        [HttpDelete("{accountId}")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        public ActionResult DeleteAccount([FromRoute][Required][Range(1, int.MaxValue, ErrorMessage = "Id must be greater than 0.")] int accountId)
         {
             accountService.DeleteAccount(accountId);
             return Ok();
@@ -52,11 +53,13 @@ namespace RadancyBanking.Controllers
         /// <param name="accountId">Account Id</param>
         /// <param name="transaction">Transaction object for withdrawal</param>
         /// <returns>Updated account</returns>
-        [HttpPatch("/api/[controller]/{accountId}/Withdraw")]
-        public ActionResult<UserAccount> Withdraw([FromRoute][Required][Range(1, int.MaxValue)] int accountId, [FromBody] WithdrawalTransaction transaction)
+        [HttpPatch("{accountId}/Withdraw")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public ActionResult<UserAccount> Withdraw([FromRoute][Required][Range(1, int.MaxValue, ErrorMessage = "Id must be greater than 0.")] int accountId, [FromBody] WithdrawalTransaction transaction)
         {
             var account = accountService.ApplyTransaction(accountId, transaction);
-            return account == null ? BadRequest() : Ok(account);
+            return account.Item1 == null ? BadRequest(account.Item2) : Ok(account.Item1);
         }
 
         /// <summary>
@@ -65,11 +68,13 @@ namespace RadancyBanking.Controllers
         /// <param name="accountId">Account id</param>
         /// <param name="transaction">Transaction object for deposit</param>
         /// <returns>Updated account</returns>
-        [HttpPatch("/api/[controller]/{accountId}/Deposit")]
-        public ActionResult<UserAccount>Deposit([FromRoute] [Required] [Range(1, int.MaxValue)] int accountId, [FromBody] WithdrawalTransaction transaction)
+        [HttpPatch("{accountId}/Deposit")]
+        [ProducesResponseType(StatusCodes.Status200OK)]
+        [ProducesResponseType(StatusCodes.Status400BadRequest)]
+        public ActionResult<UserAccount> Deposit([FromRoute][Required][Range(1, int.MaxValue, ErrorMessage = "Id must be greater than 0.")] int accountId, [FromBody] WithdrawalTransaction transaction)
         {
             var account = accountService.ApplyTransaction(accountId, transaction);
-            return account == null ? BadRequest() : Ok(account);
+            return account.Item1 == null ? BadRequest(account.Item2) : Ok(account.Item1);
         }
     }
 }
