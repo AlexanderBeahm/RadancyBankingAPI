@@ -39,13 +39,13 @@ namespace RadancyBanking.Controllers
             return Ok();
         }
 
-        [HttpPatch("/{accountId}")]
+        [HttpPatch("/{accountId}/Withdraw")]
         public ActionResult<UserAccount> Withdraw([FromRoute][Required][Range(1, int.MaxValue)] int accountId, [FromBody] WithdrawalTransaction transaction)
         {
             return accountService.ApplyTransaction(accountId, transaction);
         }
 
-        [HttpPatch("/{accountId}")]
+        [HttpPatch("/{accountId}/Deposit")]
         public ActionResult<UserAccount>Deposit([FromRoute] [Required] [Range(1, int.MaxValue)] int accountId, [FromBody] WithdrawalTransaction transaction)
         {
            return accountService.ApplyTransaction(accountId, transaction);
