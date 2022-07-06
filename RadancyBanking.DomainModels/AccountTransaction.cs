@@ -23,7 +23,8 @@ namespace RadancyBanking.DomainModels
         /// <summary>
         /// Transaction type
         /// </summary>
-        public virtual TransactionType TransactionType => throw new InvalidOperationException();
+        public virtual TransactionType GetTransactionType() => throw new InvalidOperationException();
+        
 
         /// <summary>
         /// Applies transaction to user account object.

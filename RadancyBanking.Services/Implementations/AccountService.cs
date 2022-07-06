@@ -30,6 +30,11 @@ namespace RadancyBanking.Services.Implementations
             var validator = validatorFactory.GenerateTransactionValidator(transaction.TransactionType);
             var foundAccount = accountRepository.GetAccount(id);
 
+            if(foundAccount == null)
+            {
+                return null;
+            }
+
             //TODO Implement automapping if time allows
             var domainAccount = new UserAccount
             {

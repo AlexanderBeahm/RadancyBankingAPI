@@ -15,7 +15,7 @@ namespace RadancyBanking.DomainModels
         /// <summary>
         /// Returns transaction type, deposit
         /// </summary>
-        public override TransactionType TransactionType => TransactionType.Deposit;
+        public override TransactionType GetTransactionType() => TransactionType.Deposit;
 
         /// <summary>
         /// Applies a deposit transaction to the user account.

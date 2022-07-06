@@ -15,7 +15,8 @@ namespace RadancyBanking.DomainModels
         /// <summary>
         /// Transaction Type of Withdrawal
         /// </summary>
-        public override TransactionType TransactionType => TransactionType.Withdrawal;
+        public override TransactionType GetTransactionType() => TransactionType.Withdrawal;
+
         /// <summary>
         /// Applies withdrawal transaction to user account.
         /// </summary>
